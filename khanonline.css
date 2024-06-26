@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Đảm bảo trang chiếm toàn bộ chiều cao của màn hình */
+    margin: 0;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; 
+}
+.container {
+    display: flex;
+    flex-direction: column; /* Sắp xếp các phần tử theo cột */
+    justify-content: center; /* Căn giữa các phần tử theo chiều dọc */
+    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+    text-align: center; /* Căn giữa văn bản trong .container */
+    padding: 20px; /* Khoảng cách từ các đường biên */
+}
+
+img {
+    max-width: 80%; /* Ảnh có kích thước tối đa là 100% chiều rộng của .container */
+    height: auto;
+    margin-bottom: 20px; /* Khoảng cách dưới ảnh */
+}
+
+input[type="text"], button {
+    margin: 10px 0; /* Khoảng cách giữa các phần tử */
+    padding: 10px; /* Đệm bên trong các phần tử */
+    font-size: 16px; /* Cỡ chữ */
+    border: 1px solid #ccc; /* Viền */
+    border-radius: 5px; /* Bo tròn góc */
+    width: 100%; /* Chiều rộng là 100% */
+    box-sizing: border-box; /* Đảm bảo tính toàn vẹn của chiều rộng và chiều cao */
+}
+
+button {
+    background-color: #007bff; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không có đường viền */
+    cursor: pointer; /* Con trỏ khi rê chuột vào nút */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi màu nền */
+}
+
+button:hover {
+    background-color: #0056b3; /* Màu nền khi rê chuột vào */
+}
+#chuyentrang{
+    /*cho nút ra góc trái màn hình */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #050505; /* Màu nền */
+    color: white; /* Màu chữ */
+    width: 200px; /* Chiều rộng */
+
+    border: none; /* Không có đường viền */
+    cursor: pointer; /* Con trỏ khi rê chuột vào nút */
+    transition: background-color 0.3s; /* Hiệu ứng chuyển đổi màu nền */
+}
+
+
+.dialog {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 8px;
+
+}
+
+.dialog-content {
+    
+    text-align: center;
+
+}.dialog-content p{
+    
+    font-family: 'font';
+
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: red;
+}
+@font-face {
+    font-family: 'font';
+    src: url('./tainguyen/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400;
+}

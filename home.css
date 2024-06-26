@@ -1,0 +1,117 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; 
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+    animation: fadeIn 2s ease-in-out;
+}
+
+#e{
+    width: 800px;
+    height: 600px;
+    animation: bounce 1s ease-in-out;
+
+}
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: 'font';
+}
+
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.grass-rain {
+  
+    width: 1000px;
+    height: 400px;
+    pointer-events: none; /* Không cho phép các hình ảnh rơi ảnh hưởng đến các sự kiện khác */
+}
+
+.grass {
+    position: absolute;
+    width: 70px; /* Kích thước của hình ảnh hoa */
+    height: 70px;
+    /*bo tròn ảnh*/
+    border-radius: 50%;
+    pointer-events: none; /* Không cho phép các hình ảnh rơi ảnh hưởng đến các sự kiện khác */
+    animation: fall 10s linear infinite; /* Chạy hiệu ứng rơi xuống trong 5 giây vô hạn */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-400px);
+        opacity: 0; /* Điều chỉnh độ mờ */
+    }
+    100% {
+        transform: translateY(400px);
+        opacity: 1; /* Điều chỉnh độ mờ */
+    }
+}
+@font-face {
+    font-family: 'font';
+    src: url('./tainguyen/font.ttf') format('truetype');
+    font-weight: 400;
+}
+#main {
+    position: relative;
+    display: inline-block;
+}
+#Button {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    font-size: 1rem;
+    color: #ff7e5f;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+#Button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
