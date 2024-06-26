@@ -1,3 +1,5 @@
+
+
 // Lấy các phần tử cần điều chỉnh
 var elements = [
     document.getElementById('e'),
@@ -71,28 +73,35 @@ showElement(0);
 // JavaScript để di chuyển nút
 var button = document.getElementById('Button');
 var hoverCount = 0;
+function moveButton() {
+    if (!window.matchMedia('(max-width: 768px)').matches) {
+        button.addEventListener('mouseenter', function() {
+            if (hoverCount < 5) {
+                var containerRect = document.querySelector('.container').getBoundingClientRect();
+                var buttonRect = button.getBoundingClientRect();
 
-button.addEventListener('mouseenter', function() {
-    if (hoverCount < 5) {
-        var containerRect = document.querySelector('.container').getBoundingClientRect();
-        var buttonRect = button.getBoundingClientRect();
+                // Tăng khoảng cách di chuyển ngẫu nhiên
+                var moveDistance = 200; // Khoảng cách di chuyển tối thiểu
 
-        // Tăng khoảng cách di chuyển ngẫu nhiên
-        var moveDistance = 200; // Khoảng cách di chuyển tối thiểu
+                var maxX = containerRect.width - buttonRect.width - moveDistance;
+                var maxY = containerRect.height - buttonRect.height - moveDistance;
 
-        var maxX = containerRect.width - buttonRect.width - moveDistance;
-        var maxY = containerRect.height - buttonRect.height - moveDistance;
+                // Đảm bảo nút di chuyển xa hơn một chút
+                var randomX = Math.floor(Math.random() * (maxX - moveDistance)) + moveDistance;
+                var randomY = Math.floor(Math.random() * (maxY - moveDistance)) + moveDistance;
 
-        // Đảm bảo nút di chuyển xa hơn một chút
-        var randomX = Math.floor(Math.random() * (maxX - moveDistance)) + moveDistance;
-        var randomY = Math.floor(Math.random() * (maxY - moveDistance)) + moveDistance;
+                button.style.left = randomX + 'px';
+                button.style.top = randomY + 'px';
 
-        button.style.left = randomX + 'px';
-        button.style.top = randomY + 'px';
-
-        hoverCount++;
+                hoverCount++;
+            }
+        });
     }
-});
+}
+
+// Gọi hàm di chuyển nút khi trang web được tải và khi thay đổi kích thước cửa sổ
+moveButton();
+window.addEventListener('resize', moveButton);
 
 
 
@@ -106,10 +115,9 @@ button.addEventListener('click', function() {
     var exit = document.createElement('button');
     exit.innerHTML = 'Khấn Online';
     exit.style.position = 'absolute';
-    exit.style.top = '50%';
-    exit.style.right = '60px';
+    exit.style.top = '10px';
     exit.style.zIndex = '1000';
-    exit.style.padding = '10px 20px';
+    exit.style.padding = '10px 40px';
     exit.style.border = 'none';
     exit.style.backgroundColor = '#f00';
     exit.style.color = '#fff';
